@@ -15,34 +15,33 @@
     {% endblock %}
   </head>
   <body>
-    {% include 'header.html' %}
-
     <main class="wrapper">
-      {% block content %}
+      {% include 'header.html' %} {% block content %}
       <!-- Содержимое сайта -->
       {% endblock %}
     </main>
 
-    {% include 'footer.html' %}
+    <footer>
+      {% include 'footer.html' %}
 
-    <!-- Modal for login form -->
-    <div id="loginModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeLoginModal()">&times;</span>
-        <h2>Login</h2>
-        <form class="form-box">
-          <label for="username">Username</label>
-          <input type="text" id="username" name="username" required />
+      <!-- Modal for login form -->
+      <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeLoginModal()">&times;</span>
+          <h2>Login</h2>
+          <form class="form-box">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required />
 
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required />
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
 
-          <button type="submit" class="btn">Log In</button>
-        </form>
+            <button type="submit" class="btn">Log In</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </footer>
     <script src="{% static 'js/script.js' %}"></script>
-
     {% block scripts %}
     <!-- Скрипты -->
     {% endblock %}

@@ -5,42 +5,59 @@
   box-sizing: border-box;
 }
 
+:root {
+  --main-bg-color: #f4f4f4;
+  --second-bg-color: #efefef;
+  --main-text-color: #222;
+  --second-text-color: #999;
+  --header-text-color: #333;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --main-bg-color: #1e1e1e;
+    --second-bg-color: #2a2a2a;
+    --main-text-color: #f4f4f4;
+    --header-text-color: #efefef;
+  }
+}
+
 /* Стили для body */
 body {
   font-family: "Comic Neue", cursive;
-  background-color: #f4f4f4;
-  padding: 40px 20px;
-  color: #222;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
+  height: 100vh;
 }
 
 /* Общие стили для контейнеров */
-.wrapper,
 .box,
 .article-content,
 .form-box,
-.modal-content {
-  background: #fff;
+.modal-content,
+.footer {
+  background: var(--main-bg-color);
   border-radius: 10px;
   padding: 24px 28px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.1);
 }
 
 h2,
 .form-box h2 {
   font-size: 28px;
-  color: #333;
+  color: var(--header-text-color);
   margin-bottom: 20px;
 }
 
 h3 {
   font-size: 28px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--header-text-color);
 }
 
 /* Стили для навигационного бара */
 .navbar {
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   padding: 10px 20px;
   display: flex;
   justify-content: space-between;
@@ -76,7 +93,7 @@ h3 {
 }
 
 .nav-left li a:hover {
-  color: #222;
+  color: var(--main-text-color);
   transform: scale(1.05);
 }
 
@@ -84,15 +101,29 @@ h3 {
   margin-left: auto;
 }
 
+.footer {
+  background-color: var(--second-bg-color);
+  padding: 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
 /* Стили для блока с контентом */
 .wrapper {
-  margin-top: 20px;
   display: flex;
+  flex-direction: column;
   gap: 20px;
-  justify-content: space-between;
+  height: calc(100vh - 68px);
+  padding-top: 40px;
 }
 
 .box {
+  background-color: var(--second-bg-color);
   width: 700px;
   border: 2px solid #333;
   margin: 0 auto;
@@ -112,12 +143,12 @@ h3 {
 
 .article-list li a {
   text-decoration: none;
-  color: #222;
+  color: var(--main-text-color);
   font-weight: 900;
 }
 
 .article-list li span {
-  color: #999;
+  color: var(--second-text-color);
 }
 
 .article-list li a:hover {
@@ -129,11 +160,11 @@ h3 {
   font-size: 20px;
   line-height: 1.8;
   margin-bottom: 20px;
-  color: #222;
+  color: var(--main-text-color);
 }
 
 .article-content p.date {
-  color: #999;
+  color: var(--second-text-color);
 }
 
 /* Стили для формы */
@@ -160,6 +191,7 @@ h3 {
   box-sizing: border-box;
   margin-top: 6px;
   resize: vertical;
+  background-color: var(--main-bg-color);
 }
 
 .form-box input:focus,
@@ -171,7 +203,7 @@ h3 {
 .form-box button,
 .btn {
   padding: 12px 20px;
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   color: #777;
   border: 2px solid #555;
   border-radius: 6px;
@@ -183,13 +215,13 @@ h3 {
 
 .form-box button:hover,
 .btn:hover {
-  background-color: #f0f0f0;
+  background-color: var(--main-bg-color);
   color: #222;
   border-color: #222;
 }
 
 #btn-add {
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   color: #777;
   font-weight: 700;
   font-size: 20px;
@@ -198,12 +230,12 @@ h3 {
 }
 
 #btn-add:hover {
-  background-color: #f0f0f0;
+  background-color: var(--main-bg-color);
   color: #222;
 }
 
 #btn-lgn {
-  background-color: #fff;
+  background-color: var(--main-bg-color);
   color: #777;
   font-weight: 700;
   font-size: 16px;
@@ -212,7 +244,7 @@ h3 {
 }
 
 #btn-lgn:hover {
-  background-color: #f0f0f0;
+  background-color: var(--main-bg-color);
   color: #222;
 }
 
