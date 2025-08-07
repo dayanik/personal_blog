@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock%}
+{% block css %} {% endblock %} {% block content %}
+<div class="box form-box">
+  <h2>New Article</h2>
+
+  <form>
+    <label>
+      Article Title
+      <input type="text" name="title" />
+    </label>
+
+    <label>
+      Publishing Date
+      <input type="date" name="date" />
+    </label>
+
+    <label>
+      Content
+      <textarea name="content" rows="10"></textarea>
+    </label>
+
+    <button type="submit" class="btn">Publish</button>
+  </form>
+</div>
+
+{% endblock %} {% block scripts %} {% endblock %}

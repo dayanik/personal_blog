@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Personal Blog{% endblock %}</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700&display=swap"
+      rel="stylesheet"
+    />
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    {% block css %}
+    <!-- Можно добавить стилей -->
+    {% endblock %}
+  </head>
+  <body>
+    {% include 'header.html' %}
+
+    <main class="wrapper">
+      {% block content %}
+      <!-- Содержимое сайта -->
+      {% endblock %}
+    </main>
+
+    {% include 'footer.html' %}
+
+    <!-- Modal for login form -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLoginModal()">&times;</span>
+        <h2>Login</h2>
+        <form class="form-box">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required />
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit" class="btn">Log In</button>
+        </form>
+      </div>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+
+    {% block scripts %}
+    <!-- Скрипты -->
+    {% endblock %}
+  </body>
+</html>

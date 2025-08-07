@@ -1,0 +1,262 @@
+/* Общий сброс стилей */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Стили для body */
+body {
+  font-family: "Comic Neue", cursive;
+  background-color: #f4f4f4;
+  padding: 40px 20px;
+  color: #222;
+}
+
+/* Общие стили для контейнеров */
+.wrapper,
+.box,
+.article-content,
+.form-box,
+.modal-content {
+  background: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2,
+.form-box h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Стили для навигационного бара */
+.navbar {
+  background-color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: none;
+}
+
+.nav-left,
+.nav-right {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-left {
+  display: flex;
+}
+
+.nav-left li {
+  margin-right: 20px;
+}
+
+.nav-left li a {
+  text-decoration: none;
+  color: #777;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 10px 15px;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-left li a:hover {
+  color: #222;
+  transform: scale(1.05);
+}
+
+.nav-right {
+  margin-left: auto;
+}
+
+/* Стили для блока с контентом */
+.wrapper {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.box {
+  width: 700px;
+  border: 2px solid #333;
+  margin: 0 auto;
+  font-weight: 900;
+}
+
+.article-list {
+  list-style: none;
+}
+
+.article-list li {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-size: 20px;
+}
+
+.article-list li a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 900;
+}
+
+.article-list li span {
+  color: #999;
+}
+
+.article-list li a:hover {
+  color: #777;
+}
+
+/* Стили для статьи */
+.article-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.article-content p.date {
+  color: #999;
+}
+
+/* Стили для формы */
+.form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border: 2px solid #333;
+}
+
+.form-box label {
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+
+.form-box input,
+.form-box textarea {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  resize: vertical;
+}
+
+.form-box input:focus,
+.form-box textarea:focus {
+  border-color: #222;
+  outline: none;
+}
+
+.form-box button,
+.btn {
+  padding: 12px 20px;
+  background-color: #fff;
+  color: #777;
+  border: 2px solid #555;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.form-box button:hover,
+.btn:hover {
+  background-color: #f0f0f0;
+  color: #222;
+  border-color: #222;
+}
+
+#btn-add {
+  background-color: #fff;
+  color: #777;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#btn-add:hover {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+#btn-lgn {
+  background-color: #fff;
+  color: #777;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+}
+
+#btn-lgn:hover {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  padding-top: 60px;
+  transition: opacity 0.3s;
+}
+
+.modal-content {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  margin: 5% auto;
+  border-radius: 8px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
