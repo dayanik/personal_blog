@@ -6,29 +6,31 @@
     <a href="/new" id="btn-add">+ Add</a>
   </h2>
   <ul class="article-list admin-list">
+    {% for article in articles %}
     <li>
-      <span>My first article</span>
+      <span>{{ article.title }}</span>
       <div class="actions">
-        <a href="/edit.html" class="edit">Edit</a>
-        <a href="#" class="delete">Delete</a>
+        <a href="{% url 'edit' id=article.id %}" class="edit">Edit</a>
+        <a onclick="openDeleteModal('{{ article.title }}')" class="delete"
+          >Delete</a
+        >
       </div>
     </li>
-    <li>
-      <span>Second article</span>
-      <div class="actions">
-        <a href="/edit/2" class="edit">Edit</a>
-        <a href="#" class="delete">Delete</a>
-      </div>
-    </li>
-    <li>
-      <span>Third article</span>
-      <div class="actions">
-        <a href="/edit/3" class="edit">Edit</a>
-        <a href="#" class="delete">Delete</a>
-      </div>
-    </li>
-    <!-- остальные статьи по аналогии -->
+    {% endfor %}
   </ul>
+</div>
+
+<!-- Modal for delete form -->
+<div id="deleteModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeDeleteModal()">&times;</span>
+    <h2>Delete article</h2>
+    <form id="deleteForm" class="form-box" method="post">
+      {% csrf_token %}
+      <p>Хотите удалить статью "<span id="articleTitle"></span>"?</p>
+      <button type="submit" class="btn">Yes</button>
+    </form>
+  </div>
 </div>
 
 {% endblock %} {% block scripts %} {% endblock %}

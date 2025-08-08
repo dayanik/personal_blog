@@ -3,15 +3,11 @@
 <div class="box form-box">
   <h2>New Article</h2>
 
-  <form>
+  <form method="post">
+    {% csrf_token %}
     <label>
       Article Title
       <input type="text" name="title" />
-    </label>
-
-    <label>
-      Publishing Date
-      <input type="date" name="date" />
     </label>
 
     <label>

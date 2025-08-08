@@ -29,7 +29,8 @@
         <div class="modal-content">
           <span class="close" onclick="closeLoginModal()">&times;</span>
           <h2>Login</h2>
-          <form class="form-box">
+          <form id="loginForm" class="form-box" method="post">
+            {% csrf_token %}
             <label for="username">Username</label>
             <input type="text" id="username" name="username" required />
 
@@ -37,6 +38,7 @@
             <input type="password" id="password" name="password" required />
 
             <button type="submit" class="btn">Log In</button>
+            <div id="loginError" style="color: red"></div>
           </form>
         </div>
       </div>

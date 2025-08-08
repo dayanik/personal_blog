@@ -1,13 +1,14 @@
 <nav class="navbar">
   <ul class="nav-left">
     <li><a href="/">/Home</a></li>
-    <li><a href="/admin">/Admin</a></li>
-    <li><a href="/edit">/Edit</a></li>
-    <li><a href="/new">/New</a></li>
   </ul>
   <ul class="nav-right">
     <li>
+      {% if user.is_authenticated %}
+      <button id="btn-lgn" onclick="logout()">Log out</button>
+      {% else %}
       <button id="btn-lgn" onclick="openLoginModal()">Log In</button>
+      {% endif %}
     </li>
   </ul>
 </nav>

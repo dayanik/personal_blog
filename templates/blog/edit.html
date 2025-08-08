@@ -3,22 +3,15 @@
 <div class="box form-box">
   <h2>Update Article</h2>
 
-  <form>
+  <form method="post">
+    {% csrf_token %}
     <label>
-      Article Title
-      <input type="text" name="title" value="My first article" />
-    </label>
-
-    <label>
-      Publishing Date
-      <input type="date" name="date" value="2024-08-07" />
+      <input type="text" name="title" value="{{ article.title }}" />
     </label>
 
     <label>
       Content
-      <textarea name="content" rows="10">
-Lorem ipsum dolor sit amet ...</textarea
-      >
+      <textarea name="content" rows="10">{{ article.content }}</textarea>
     </label>
 
     <button type="submit" class="btn">Update</button>
