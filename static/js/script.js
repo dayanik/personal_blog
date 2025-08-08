@@ -77,8 +77,13 @@ function getCookie(name) {
 }
 
 // Функция для открытия модального окна удаления статьи
-function openDeleteModal(articleTitle) {
-  document.getElementById('articleTitle').innerText = articleTitle;
+let articleId = null;
+
+function openDeleteModal() {
+  deleteBtn = document.getElementById('deleteBtn');
+  articleId = deleteBtn.getAttribute('data-id');
+  const articleTitle = deleteBtn.getAttribute('data-title');
+  document.getElementById('deleteText').textContent = `Вы уверены, что хотите удалить статью "${articleTitle}"?`;
   document.getElementById('deleteModal').style.display = 'block';
 }
 
@@ -95,3 +100,23 @@ window.onclick = function(event) {
 }
 
 // Отправка запроса на удаление статьи по ajax
+function deleteArticle() {
+  fetch("/delete",
+    {
+      method: "POST",
+      headers: {
+        "X-CSRFToken": getCookie("csrftoken"),
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      body: `id=${encodeURIComponent(articleId)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        location.reload();
+      } else {
+        document.getElementById('deleteText').textContent = 'Ошибка: ' + data.error;
+        document.getElementById('deleteYesBtn').style.display = 'none';
+      }
+    });
+}

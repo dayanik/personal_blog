@@ -11,7 +11,7 @@
       <span>{{ article.title }}</span>
       <div class="actions">
         <a href="{% url 'edit' id=article.id %}" class="edit">Edit</a>
-        <a onclick="openDeleteModal('{{ article.title }}')" class="delete"
+        <a onclick="openDeleteModal()" id="deleteBtn" data-id="{{ article.id }}" data-title="{{ article.title }}"
           >Delete</a
         >
       </div>
@@ -25,10 +25,8 @@
   <div class="modal-content">
     <span class="close" onclick="closeDeleteModal()">&times;</span>
     <h2>Delete article</h2>
-    <form id="deleteForm" class="form-box" method="post">
-      {% csrf_token %}
-      <p>Хотите удалить статью "<span id="articleTitle"></span>"?</p>
-      <button type="submit" class="btn">Yes</button>
+    <p id="deleteText"></p>
+    <button onclick="deleteArticle()" class="btn" id="deleteYesBtn">Yes</button>
     </form>
   </div>
 </div>

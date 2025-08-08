@@ -49,12 +49,15 @@ def new(request):
 
 
 @login_required(redirect_field_name='')
-def delete(request, id):
-    article = Article.objects.get(id=id)
-    if request.method == 'POST':
+def delete(request):
+    article_id = request.POST.get('id')
+    try:
+        article = Article.objects.get(id=article_id)
         article.delete()
-        return redirect(reverse('article', kwargs={'id': article.id}))
-    return render(request, 'blog/edit.html', context={'article': article})
+        return JsonResponse({'success': True})
+    except Article.DoesNotExist:
+        return JsonResponse({'success': False, 'error': 'Not found.'})
+
 
 def login_admin(request):
     if request.method == 'POST':

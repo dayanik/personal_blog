@@ -248,6 +248,11 @@ h3 {
   color: #222;
 }
 
+/* Стиль для страницы admin */
+#deleteBtn {
+  cursor: pointer;
+}
+
 /* Modal Styles */
 .modal {
   display: none;
