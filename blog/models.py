@@ -1,14 +1,19 @@
+import bleach
 import mistune
 
 from django.db import models
 
 
+ALLOWED_TAGS = ["h1", "h2", "h3", "h4", "h5", "h6"]
+ALLOWED_ATTRIBUTES = {}
+PLUGINS = ["table", "strikethrough", "footnotes", "task_lists"]
+
+
 class CustomRenderer(mistune.HTMLRenderer):
     def block_html(self, html):
-        """Разрешаем только заголовки h1-h6, остальной HTML экранируем"""
-        if html.strip().startswith(("<h1", "<h2", "<h3", "<h4", "<h5", "<h6")):
-            return html  # Разрешаем заголовки
-        return mistune.escape(html)  # Остальной HTML экранируем
+        cleaned = bleach.clean(html, tags=ALLOWED_TAGS,
+                               attributes=ALLOWED_ATTRIBUTES, strip=True)
+        return cleaned
 
 
 class Article(models.Model):
@@ -17,8 +22,11 @@ class Article(models.Model):
     date = models.DateField(auto_now=True)
 
     def get_content_as_html(self):
-        return mistune.create_markdown(
-            plugins=["table"], renderer=CustomRenderer())(self.content)
+        md = mistune.create_markdown(plugins=PLUGINS, renderer=CustomRenderer())
+        return md(self.content)
 
     def __str__(self):
         return self.title
+    
+    class Meta:
+        ordering = ['-date']
