@@ -6,7 +6,7 @@
 <div class="box article-content">
   <h2 class="header">{{ article.title }}</h2>
   <p class="date">{{ article.date|date:"M d, Y" }}</p>
-  <p>{{ article.get_content_as_html|safe }}</p>
+  <p>{{ article.content }}</p>
 </div>
 {% include 'blog/login_modal.html' %} {% endblock %} {% block scripts %}
 <!-- scripts -->

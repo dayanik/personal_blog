@@ -24,7 +24,7 @@ def login_required(view_func):
 
 def index(request: HttpRequest) -> HttpResponse:
     """Выводит статьи на домашней странице."""
-    articles = Article.objects.all()
+    articles = Article.objects.all().values('id', 'title', 'date')
     return render(request, 'blog/home.html', context={'articles': articles})
 
 
@@ -69,7 +69,7 @@ def admin(request: HttpRequest) -> HttpResponse:
     """Выводит все статьи на странице /admin.
     
     Необходимы права доступа администратора сайта."""
-    articles = Article.objects.all()
+    articles = Article.objects.all().values('id', 'title', 'date')
     return render(request, 'blog/admin.html', context={'articles': articles})
 
 
