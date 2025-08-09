@@ -1,0 +1,13 @@
+.article-content {
+}
+
+.article-content p {
+  font-size: 20px;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  color: var(--main-text-color);
+}
+
+.date {
+  color: var(--second-text-color);
+}

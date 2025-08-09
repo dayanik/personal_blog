@@ -1,0 +1,52 @@
+#loginModal {
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  padding-top: 60px;
+  transition: opacity 0.3s;
+}
+.modal-content {
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ddd;
+  margin: 5% auto;
+  border-radius: 8px;
+}
+.close {
+  color: #aaa;
+  font-size: 32px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+}
+
+#loginForm {
+}
+
+.form-box {
+}
+
+#loginError {
+}
+#deleteModal {
+}
+#deleteText {
+}
+#deleteYesBtn {
+}

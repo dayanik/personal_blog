@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    {% load static %}
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}Personal Blog{% endblock %}</title>
@@ -8,44 +9,25 @@
       href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700&display=swap"
       rel="stylesheet"
     />
-    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     {% block css %}
-    <!-- Можно добавить стилей -->
+    <!-- Можно добавить дополнительные стили -->
+
     {% endblock %}
   </head>
   <body>
     <main class="wrapper">
-      {% include 'header.html' %} {% block content %}
+      {% include 'header.html' %}
+
       <!-- Содержимое сайта -->
-      {% endblock %}
+      {% block content %} {% endblock %}
     </main>
 
-    <footer>
-      {% include 'footer.html' %}
+    <footer>{% include 'footer.html' %}</footer>
 
-      <!-- Modal for login form -->
-      <div id="loginModal" class="modal">
-        <div class="modal-content">
-          <span class="close" onclick="closeLoginModal()">&times;</span>
-          <h2>Login</h2>
-          <form id="loginForm" class="form-box" method="post">
-            {% csrf_token %}
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required />
-
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required />
-
-            <button type="submit" class="btn">Log In</button>
-            <div id="loginError" style="color: red"></div>
-          </form>
-        </div>
-      </div>
-    </footer>
     <script src="{% static 'js/script.js' %}"></script>
     {% block scripts %}
-    <!-- Скрипты -->
+    <!-- Можно добавить дополнительные скрипты -->
     {% endblock %}
   </body>
 </html>

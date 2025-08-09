@@ -1,0 +1,22 @@
+#btn-add {
+  background-color: var(--main-bg-color);
+  color: #777;
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#btn-add:hover {
+  background-color: var(--main-bg-color);
+  color: #222;
+}
+.admin-list {
+}
+.actions {
+}
+.edit {
+}
+#deleteBtn {
+  cursor: pointer;
+}

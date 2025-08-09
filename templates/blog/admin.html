@@ -1,5 +1,8 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock%}
-{% block css %} {% endblock %} {% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/admin_style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/modal_style.css' %}" />
+{% endblock %} {% block content %}
 <div class="box">
   <h2 class="header">
     Personal Blog
@@ -24,7 +27,7 @@
 <div id="deleteModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeDeleteModal()">&times;</span>
-    <h2>Delete article</h2>
+    <h2 class="header">Delete article</h2>
     <p id="deleteText"></p>
     <button onclick="deleteArticle()" class="btn" id="deleteYesBtn">Yes</button>
     </form>

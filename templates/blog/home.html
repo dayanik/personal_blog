@@ -1,7 +1,9 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock%}
-{% block css %} {% endblock %} {% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/modal_style.css' %}" />
+{% endblock %} {% block content %}
 <div class="box">
-  <h2>Personal Blog</h2>
+  <h2 class="header">Personal Blog</h2>
   <ul class="article-list">
     {% for article in articles %}
     <li>
@@ -12,4 +14,6 @@
   </ul>
 </div>
 
-{% endblock %} {% block scripts %} {% endblock %}
+{% include 'blog/login_modal.html' %} {% endblock %} {% block scripts %}
+<!-- scripts -->
+{% endblock %}

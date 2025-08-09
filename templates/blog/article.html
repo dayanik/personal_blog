@@ -1,9 +1,13 @@
 {% extends 'base.html' %} {% load static %} {% block title %} Home {% endblock%}
-{% block css %} {% endblock %} {% block content %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/article_style.css' %}" />
+<link rel="stylesheet" href="{% static 'css/modal_style.css' %}" />
+{% endblock %} {% block content %}
 <div class="box article-content">
-  <h2>{{ article.title }}</h2>
+  <h2 class="header">{{ article.title }}</h2>
   <p class="date">{{ article.date|date:"M d, Y" }}</p>
   <p>{{ article.get_content_as_html|safe }}</p>
 </div>
-
-{% endblock %} {% block scripts %} {% endblock %}
+{% include 'blog/login_modal.html' %} {% endblock %} {% block scripts %}
+<!-- scripts -->
+{% endblock %}

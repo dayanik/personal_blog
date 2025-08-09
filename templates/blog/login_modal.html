@@ -1,0 +1,19 @@
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <button class="close" aria-label="Close" onclick="closeLoginModal()">
+      &times;
+    </button>
+    <h2 class="header">Login</h2>
+    <form id="loginForm" class="form-box" method="post" novalidate>
+      {% csrf_token %}
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit" class="btn">Log In</button>
+      <div id="loginError" style="color: red"></div>
+    </form>
+  </div>
+</div>
